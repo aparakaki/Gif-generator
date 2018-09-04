@@ -1,4 +1,4 @@
-var topics = ["dog", "cat", "racoon"];              //array of gif categories
+var topics = ["dog", "cat", "monkey", "bird"];              //array of gif categories
 var index = 0;                                      //index at which the array is at
 var userInput;
 
@@ -38,7 +38,8 @@ $(document).ready(function(){
                 var pDiv = $("<p>").text("Rating: " + gifArray[i].rating);
                 var imgDiv = $("<img>").attr("src", gifArray[i].images.fixed_height_still.url)
                 .attr("data-srcStill", gifArray[i].images.fixed_height_still.url)
-                .attr("data-srcAnimated",gifArray[i].images.fixed_height.url);
+                .attr("data-srcAnimated", gifArray[i].images.fixed_height.url)
+                .attr("data-srcOriginal", gifArray[i].images.original.url);
 
                 gifDiv.append(pDiv, imgDiv);
                 $("#gifContainer").prepend(gifDiv);
@@ -54,5 +55,14 @@ $(document).ready(function(){
     $(document).on("mouseleave", "img", function() {
         $(this).attr("src", $(this).attr("data-srcStill"));
     });
+
+    $(document).on("click", "img", function() {
+        $("#myModal").css("display", "block");
+        $("#imgModal").attr("src", $(this).attr("data-srcOriginal"));
+    });
+
+    $(".close").on("click", function() {
+        $("#myModal").css("display", "none");
+    })
 
 })
