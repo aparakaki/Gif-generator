@@ -2,6 +2,10 @@
     margin:auto;
 }
 
+.btn-group {
+    margin: 5px 3px 5px 3px;
+}
+
 img {
     max-width: 300px;
     height: auto;
@@ -10,5 +14,9 @@ img {
 .imgContainer {
     max-width: 350px;
     height: auto;
+    margin: 10px 10px 10px 10px;
 }
+ p {
+     margin-bottom: 8px;
+ }
 

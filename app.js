@@ -4,9 +4,11 @@ var userInput;
 
 function generateButton() {
     for (; index < topics.length; index++) {
+        var newDiv = $("<div>").addClass("btn-group");
         var nameBtn = $("<button>");
         nameBtn.attr("data-name", topics[index]).text(topics[index]).addClass("btn btn-info gif-btn");
-        $("#btnContainer").append(nameBtn);
+        newDiv.append(nameBtn)
+        $("#btnContainer").append(newDiv);
     }
 }
 
@@ -16,9 +18,11 @@ $(document).ready(function(){
     $("#btn-submit").on("click", function(event) {
         event.preventDefault();
         userInput = $("#gifInput").val();
-        $("#gifInput").val("");
-        topics.push(userInput);
-        generateButton();
+        if (!(userInput === "")) {                  //create a button if value exists
+            $("#gifInput").val("");
+            topics.push(userInput);
+            generateButton();    
+        }
     })
 
     $(document).on("click", ".gif-btn", function() {
@@ -37,7 +41,7 @@ $(document).ready(function(){
                 .attr("data-srcAnimated",gifArray[i].images.fixed_height.url);
 
                 gifDiv.append(pDiv, imgDiv);
-                $("#gifContainer").append(gifDiv);
+                $("#gifContainer").prepend(gifDiv);
             }
             console.log(response);
         })        
