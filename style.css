@@ -1,9 +1,17 @@
+body {
+    background-image: url("images/background.png");
+}
+
 .container {
     margin:auto;
 }
 
 .btn-group {
     margin: 5px 3px 5px 3px;
+}
+
+label {
+    font-weight: bold;
 }
 
 img {
