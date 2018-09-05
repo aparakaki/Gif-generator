@@ -1,6 +1,11 @@
 body {
     background-image: url("images/background.png");
+    font-family: 'Love Ya Like A Sister', cursive;
 }
+
+h1 {
+    font-weight: bold;
+ }
 
 .container {
     margin:auto;

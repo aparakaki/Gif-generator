@@ -18,7 +18,7 @@ $(document).ready(function(){
     $("#btn-submit").on("click", function(event) {
         event.preventDefault();
         userInput = $("#gifInput").val();
-        if (!(userInput === "")) {                  //create a button if value exists
+        if (!(userInput === "")) {                  //creates a button if value exists
             $("#gifInput").val("");
             topics.push(userInput);
             generateButton();    
@@ -46,17 +46,10 @@ $(document).ready(function(){
             }
             console.log(response);
         })        
-    })
-
-    $(document).on("mouseenter", "img", function() {
-        $(this).attr("src", $(this).attr("data-srcAnimated"));
     });
 
-    $(document).on("mouseleave", "img", function() {
-        $(this).attr("src", $(this).attr("data-srcStill"));
-    });
-
-    $(document).on("click", "img", function() {
+//-------------------------enlarges gif--------------------------------------
+     $(document).on("click", "img", function() {
         $("#myModal").css("display", "block");
         $("#imgModal").attr("src", $(this).attr("data-srcOriginal"));
     });
@@ -64,5 +57,14 @@ $(document).ready(function(){
     $(".close").on("click", function() {
         $("#myModal").css("display", "none");
     })
+
+//--------------animates gif when mouse hovers over the image-----------------
+    $(document).on("mouseenter", "img", function() {                
+        $(this).attr("src", $(this).attr("data-srcAnimated"));
+    });
+
+    $(document).on("mouseleave", "img", function() {
+        $(this).attr("src", $(this).attr("data-srcStill"));
+    });
 
 })
